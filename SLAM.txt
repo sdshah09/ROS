@@ -39,4 +39,12 @@ Choice 2: find the geometric and 3D properties of the features that minimize a c
 Periodic repopulation of trackpoints to maintain coverage across the image.
 An alternative to feature-based methods is the "direct" or appearance-based visual odometry technique which minimizes an error directly in sensor space and subsequently avoids feature matching and extraction.[4][12][13]
 
-Another method, coined 'visiodometry' estimates the planar roto-translations between images using Phase correlation instead of extracting features.[14][15]
+Another method, coined 'visiodometry' estimates the planar roto-translations between images using Phase correlation instead of extracting features.
+-----------------------------------------------------------------------------------------------------
+
+An EKF (Extended Kalman Filter) is the
+heart of the SLAM process. It is responsible for updating where the robot thinks it is
+based on these features. These features are commonly called landmarks and will be
+explained along with the EKF in the next couple of chapters. The EKF keeps track of
+an estimate of the uncertainty in the robots position and also the uncertainty in these
+landmarks it has seen in the environment. 
