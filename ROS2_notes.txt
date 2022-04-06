@@ -1,0 +1,43 @@
+https://answers.ros.org/question/185205/what-are-publishers-and-subscribers/
+ros2 run my_py_pkg py_node
+
+ros2 run my_py_pkg py_node --ros-args --remap __node:=abc->this will change the name of node from py_test to abc
+
+ros2 topic echo /robot_news ->robot_news = name of publisher
+
+ros2 interface show example_interfaces/msg/String ->will show string data
+
+ros2 topic info /robot_news -> will give info about publisher and subscriber
+
+ros2 topic hz /robot_news ->will give the frequence at which publisher is working
+
+ros2 topic bw /robot_news-> gives bandwidth
+
+ros2 topic pub -r 10 /robot_news example_interfaces/msg/String "{data: 'hello form terminal'}"
+
+ros2 node info /robot_news_station -> gives all the information about node
+
+ros2 node list->gives list of all nodes working
+
+1 Synchronous calls.
+A synchronous client will block the calling thread when 
+sending a request to a service until a response has been received; nothing 
+else can happen on that thread during the call. 
+The call can take arbitrary amounts of time to complete. 
+Once complete, the response returns directly to the client.
+
+2 Asynchronous calls
+Async calls in rclpy are entirely safe and the recommended method of calling services. 
+They can be made from anywhere without running the risk of blocking other ROS and non-ROS processes, unlike sync calls.
+An asynchronous client will immediately return future, a value that indicates 
+whether the call and response is finished (not the value of the response itself), 
+after sending a request to a service. The returned future may be queried for a response at any time.
+
+Summary
+It is not recommended to implement a synchronous service client. 
+They are susceptible to deadlock, but will not provide any indication of issue when deadlock occurs. 
+If you must use synchronous calls, the example in section 1 Synchronous calls is a safe method of doing so. 
+You should also be aware of the conditions that cause deadlock outlined in section 1.1 Sync deadlock. 
+We recommend using async service clients instead.
+
+
