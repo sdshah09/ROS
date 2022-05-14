@@ -1,0 +1,1 @@
+To convert 3d to 2d plot of any given path using pangolin viewer and evo_trajectory library use command evo_traj tum f_datasetMH10.txt --plot_mode xz --plot
