@@ -1,3 +1,4 @@
+add_compile_options(-std=c++14) # add this line to remove errors of make in orb_slam
 cmake_minimum_required(VERSION 2.8)
 project(ORB_SLAM3)
 
